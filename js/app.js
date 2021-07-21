@@ -38,15 +38,25 @@ const updateCity = async (city) => {
 
     return cityDetails;
 }
+
+
 cityForm.addEventListener('submit', e => {
 
     e.preventDefault();
     //getting from form
     const cityName = cityForm.city.value.trim();
     cityForm.reset()
-
+  
     //update the ui
     updateCity(cityName)
         .then(data => updateUI(data))
         .catch(error => console.log(error));
+
+    localStorage.setItem('city', cityName);
 })
+
+if (localStorage.getItem('city')) {
+    updateCity(localStorage.getItem('city'))
+        .then(data => updateUI(data))
+        .catch(error => console.log(error));
+}
