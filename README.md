@@ -1,2 +1,2 @@
 # weather-api-app
-# Simple app with pure Javascript 
+ Simple app with pure Javascript 
